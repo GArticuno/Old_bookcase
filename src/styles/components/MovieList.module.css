@@ -1,0 +1,147 @@
+.container{
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+
+.container > form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem;
+  
+  background: var(--gray-dark);
+}
+
+.container button{
+  font-size:1.15rem;
+  border-radius: 20px;
+  padding: 0.2rem 0.3rem;
+  border: 0;
+  outline: 0;
+}
+
+.container button:not(:disabled):hover{
+
+  background: var(--red-dark);
+}
+
+.container button:not(:disabled):active, .container button:not(:disabled){
+  color: var(--white);
+  background: var(--red);
+}
+
+.container > form label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--red);
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 50px;
+}
+
+.container > form input{
+  font-size:1.15rem;
+  border:0;
+  border-radius: 50px;
+  outline: 0;
+}
+
+.inputYear{
+  width: 4rem;
+}
+
+.type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--red);
+  padding: 0.3rem;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+.type select{
+  font-size:1.15rem;
+  border:0;
+  outline: 0;
+  border-radius: 5px;
+}
+
+.container > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridMovies{
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr;
+  row-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gridMovies section{
+  display: grid;
+  grid-template-rows: 1fr 3.3rem 2rem;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+
+  background: var(--gray-dark);
+}
+
+.gridMovies section > div:first-child{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--red);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.title{
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.gridMovies img{
+  height: 15rem;
+  width: 13rem;
+}
+
+@media(max-width: 843px){
+
+  .container > form{
+    display: grid;
+    grid-template-columns: 19rem 7rem;
+    column-gap: 4rem
+  }
+
+  .gridMovies{
+    grid-template-columns: 0.8fr 0.8fr;
+  }
+}
+
+@media(max-width: 500px){
+
+  .container > form{
+    display: grid;
+    grid-template-columns: 19rem;
+    column-gap: 4rem
+  }
+
+  .type{  
+    background: none;
+  }
+
+  .gridMovies{
+    grid-template-columns: 0.8fr;
+  }
+
+}
