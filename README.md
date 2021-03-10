@@ -1,7 +1,7 @@
 # About
 
-Simple react aplication with axios + RESTful API
+Simple react application with axios + RESTful API
 
-## Aplication
+## Application
 
 ![](https://github.com/GArticuno/Old_bookcase/blob/main/image.png)
