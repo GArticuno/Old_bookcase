@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import {MoviesContext} from '../context/MoviesContext';
-import styles from '../styles/components/MovieCell.module.css';
+import {MoviesContext} from '../../context/MoviesContext';
+import styles from '../../styles/components/MovieCell.module.css';
 
-function DataCell() {
+export function MovieCell() {
 
   const {movie, MovieCellClose, loadMovie} = useContext(MoviesContext)
 
@@ -57,5 +57,3 @@ function DataCell() {
     </div>
   )
 }
-
-export default DataCell;

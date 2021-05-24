@@ -4,7 +4,7 @@
 }
 
 
-.container > form{
+.container > .form{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@
   background: var(--red);
 }
 
-.container > form label{
+.container > .form label{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +43,7 @@
   border-radius: 50px;
 }
 
-.container > form input{
+.container > .form input{
   font-size:1.15rem;
   border:0;
   border-radius: 50px;
@@ -80,7 +80,7 @@
 
 .gridMovies{
   display: grid;
-  grid-template-columns: 0.8fr 0.8fr 0.8fr;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr;
   row-gap: 1rem;
   margin-top: 1rem;
 }
@@ -115,9 +115,19 @@
   width: 13rem;
 }
 
+.formArrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrows {
+  margin: 0.5rem 1rem;
+}
+
 @media(max-width: 843px){
 
-  .container > form{
+  .container > .form{
     display: grid;
     grid-template-columns: 19rem 7rem;
     column-gap: 4rem
@@ -130,7 +140,7 @@
 
 @media(max-width: 500px){
 
-  .container > form{
+  .container > .form{
     display: grid;
     grid-template-columns: 19rem;
     column-gap: 4rem

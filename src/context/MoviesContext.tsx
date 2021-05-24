@@ -1,6 +1,6 @@
 import {createContext, useState, ReactNode} from 'react';
 
-import MovieCell from '../components/MovieCell';
+import {MovieCell} from '../components/MovieCell';
 import api from '../services/api';
 
 interface Movies{
@@ -38,9 +38,12 @@ interface MoviesContextData{
     search: string;
     searchT: string;
     searchY: string;
+    page: number;
     IncludeY: boolean;
     activeFind: boolean;
     notMovie: boolean;
+    head: boolean;
+    tail: boolean;
     movies: Movies[];
     movie: Movie;
     loadMovie: boolean;
@@ -53,6 +56,9 @@ interface MoviesContextData{
     SubmitMovieDescription: (movieId: string) => void;
     MovieCellOpen: () => void;
     MovieCellClose: () => void;
+    prevPage: () => void;
+    nextPage: () => void;
+    resetPage: () => void;
 
 }
 
@@ -70,11 +76,14 @@ export default function MoviesProvider({children} : MoviesProviderProps){
   const [search, setSearch]= useState('');
   const [searchY, setSearchY]= useState('');
   const [searchT, setSearchT]= useState('');
-  
+  const [page, setPage] = useState(1);
+
   const [IncludeY, setIncludeY]= useState(false);
   const [activeFind, setActiveFind]= useState(false);
   const [notMovie, setNotMovie]= useState(false);
-  
+  const [head, setHead] = useState(true);
+  const [tail, setTail] = useState(true);
+
   const [movie, setMovie]= useState({} as Movie);
   const [isMovieCellOpen, setIsMovieCellOpen] = useState(false);
   const [loadMovie, setLoadMovie]= useState(false);
@@ -99,16 +108,27 @@ export default function MoviesProvider({children} : MoviesProviderProps){
   function SubmitMovies(event: any){
     var year = 'y=' + searchY;
     event.preventDefault();
-    api.get(`?s=${search}&${searchT}&${year}&?i=tt3896198&apikey=bc5b2f44`)
+
+    api.get(`?s=${search}&${searchT}&${year}&page=${page}&?i=tt3896198&apikey=bc5b2f44`)
       .then(res => {
-        if(res.data.Search=== undefined){
+        console.log(res.data.Search)
+        if(res.data.Search === undefined && page === 1){
           setNotMovie(true);
+        }else if(res.data.Search=== undefined && page !== 1){
+          setTail(true);
+          setNotMovie(false);
         }else{
           setMovies(res.data.Search);
           setActiveFind(true);
+          setTail(false);
           setNotMovie(false);
         }
-      })
+        if(page === 1){
+          setHead(true);
+        }else if(page > 1){
+          setHead(false);
+        }
+      }).catch(err => console.log(err))
   }
 
   function SubmitMovieDescription(movieId: string){
@@ -133,15 +153,31 @@ export default function MoviesProvider({children} : MoviesProviderProps){
     setIsMovieCellOpen(false);
   }
 
+  function prevPage(){
+    setPage(page-1)
+
+  }
+
+  function nextPage(){
+    setPage(page+1)
+  }
+
+  function resetPage(){
+    setPage(1);
+  }
+
   return(
     <MoviesContext.Provider
     value={{
       search,
       searchT,
+      page,
       searchY,
       IncludeY,
       activeFind,
       notMovie,
+      head,
+      tail,
       movies,
       movie,
       loadMovie,
@@ -154,6 +190,9 @@ export default function MoviesProvider({children} : MoviesProviderProps){
       SubmitMovieDescription,
       MovieCellOpen,
       MovieCellClose,
+      prevPage,
+      nextPage,
+      resetPage
       
       }}
     >

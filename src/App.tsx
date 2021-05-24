@@ -1,4 +1,4 @@
-import MovieList from './components/MovieList';
+import {MovieList} from './components/MovieList';
 import './styles/global.css';
 import MoviesProvider from './context/MoviesContext'
 
