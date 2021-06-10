@@ -9,7 +9,20 @@
 
 body{
     background: var(--background);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--red);
+    border-radius: 10px;
+  }
 
 @media(max-width: 1080px){
     html{

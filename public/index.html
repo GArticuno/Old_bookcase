@@ -5,11 +5,19 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ec2d2d" />
+    <meta name="description" content="Movies, series and games search site.">
+
     <meta property="og:title" content="Old Bookcase"/>
     <meta property="og:description" content="Movies, series and games search site."/>
-    <meta property="og:image" content=""/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="manifest" href="./manifest.json" />
+    <script src="./pwa.dev.min.js"></script>
+    <script> if (navigator.serviceWorker) { navigator.serviceWorker.register ('./sw.js') } </script>
     <title>Old Bookcase</title>
   </head>
   <body>
