@@ -109,7 +109,7 @@ export default function MoviesProvider({children} : MoviesProviderProps){
     var year = 'y=' + searchY;
     event.preventDefault();
 
-    api.get(`?s=${search}&${searchT}&${year}&page=${page}&?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}`)
+    api.get(`?s=${search}&${searchT}&${year}&page=${page}&?i=tt3896198&apikey=bc5b2f44`)
       .then(res => {
         console.log(res.data.Search)
         if(res.data.Search === undefined && page === 1){
