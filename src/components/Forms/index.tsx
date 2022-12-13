@@ -12,6 +12,10 @@ const Form = styled.form`
   border-radius: 0 0 20px 20px;
   font-family: 'Baloo Tammudu 2', sans-serif;
   background: var(--gray-dark);
+  
+  button {
+	padding: 0.2rem 0.5rem;
+  };
 
   .div__label {
     display: flex;
@@ -32,6 +36,7 @@ const Form = styled.form`
       border:0;
       border-radius: 5px;
       margin-left: 0.5rem;
+      padding: 0.3rem;
       outline: 0;
     }
 
@@ -149,7 +154,7 @@ export function Forms(){
         onClick={() => resetPage()}
         disabled={search===''}
       >
-        Find
+        find
       </button>
     </Form>
   )
